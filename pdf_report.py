@@ -183,6 +183,7 @@ def buat_pdf(tanggal: str, n_obs: int, output: dict) -> bytes:
     story.append(HRFlowable(width="100%", thickness=1.5,
                             color=colors.HexColor("#1a3e72"), spaceAfter=4))
     story.append(Paragraph("Laporan Monitoring Flow &amp; Pressure", title_s))
+    story.append(Paragraph("Peta Kendali Hotelling T\u00b2 \u2013 PT. Air Minum Intan Banjar &nbsp;|&nbsp; DMA Anang Syahrani", sub_s))
     story.append(HRFlowable(width="100%", thickness=0.6,
                             color=colors.HexColor("#aaaaaa"), spaceAfter=2))
     story.append(Paragraph(
@@ -218,7 +219,7 @@ def buat_pdf(tanggal: str, n_obs: int, output: dict) -> bytes:
 
     # ── 2. Peta Kendali ───────────────────────────────────────────────────────
     story += sec("2. Peta Kendali")
-    chart_img = RLImage(_render_chart(hasil, ucl), width=W, height=7.5*cm)
+    chart_img = RLImage(_render_chart(hasil, ucl), width=W, height=7*cm)
     story.append(chart_img)
     story.append(Paragraph(
         "Setiap titik mewakili satu jam pengukuran. Titik hijau menunjukkan observasi "

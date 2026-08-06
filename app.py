@@ -10,7 +10,7 @@ from pdf_report import buat_pdf
 
 st.set_page_config(
     page_title="Aplikasi Monitoring Flow & Pressure",
-    page_icon="c:\\Users\\shyne\\OneDrive\\Documents\\ular\\T2 App\\icon.png.png",
+    page_icon="icon.png.png",
     layout="wide"
 )
 
@@ -25,8 +25,9 @@ with _col_title:
 
 st.write(
     """
-    Aplikasi ini digunakan untuk melakukan monitoring
-    Flow dan Pressure menggunakan peta kendali Hotelling T².
+    Aplikasi ini digunakan untuk melakukan monitoring Flow dan Pressure
+    menggunakan peta kendali Hotelling T² khusus untuk data
+    **PT. Air Minum Intan Banjar — DMA Anang Syahrani**.
     """
 )
 st.sidebar.header("Menu")
@@ -68,7 +69,7 @@ else:
         st.metric("Jumlah Kolom", len(df.columns))
 
     with col3:
-        st.metric("Batas Kendali (UCL)", "9.1951")
+        st.metric("Batas Kendali (UCL)", "4.4280")
     # Validasi jumlah observasi
     if n < 24:
 
@@ -284,7 +285,7 @@ else:
             "pressure Distribusi": "Pressure Distribusi (Bar)",
         })
         st.dataframe(ooc_display)
-        st.write("Semakin jauh nilai T² dari 9.1951, semakin besar penyimpangan yang terjadi pada observasi tersebut.")
+        st.write("Semakin jauh nilai T² dari 4.4280, semakin besar penyimpangan yang terjadi pada observasi tersebut.")
         st.warning(
             f"⚠️ Ada sebanyak {output['jumlah_ooc']} dari {len(output['hasil'])} observasi ({persen_ooc:.2f}%) berada di luar kendali yang perlu diperiksa lebih lanjut."
         )

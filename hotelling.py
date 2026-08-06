@@ -44,16 +44,16 @@ def analisis_hotelling(df):
     ).reset_index(drop=True)
 
     mu = np.array([
-        3.925339,
-        1.373540
+        3.917612,
+        1.370727
     ])
     # Inverse Covariance Matrix
     Sinv = np.array([
-        [29.194792, 9.424446],
-        [9.424446, 19.792581]
+        [55.31965, 26.51486],
+        [26.51486, 30.63063]
     ])
     # Upper Control Limit
-    UCL = 9.195092
+    UCL = 4.42802
 
     hasil["Hour"] = hasil["Time"].dt.strftime("%H:%M")
     x = hasil[
