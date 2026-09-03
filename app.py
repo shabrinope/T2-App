@@ -30,6 +30,24 @@ st.write(
     **PT. Air Minum Intan Banjar — DMA Anang Syahrani**.
     """
 )
+sample_file = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "contoh_data.csv"
+)
+
+with st.expander("Lihat Contoh Format Data"):
+    if os.path.exists(sample_file):
+        sample_data = pd.read_csv(sample_file)
+        
+        st.write("Contoh data yang dapat diunggah:")
+        st.dataframe(sample_data.head(10), use_container_width=True)
+        
+        st.caption(
+            "File yang diunggah harus berformat CSV dan memiliki "
+            "variabel Flow dan Pressure."
+        )
+    else:
+        st.warning("File contoh data tidak ditemukan.")
 st.sidebar.header("Menu")
 
 uploaded_file = st.sidebar.file_uploader(
