@@ -14,12 +14,21 @@ st.set_page_config(
     layout="wide"
 )
 
-_ICON_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icon.png.png")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+_ICON_PATH = BASE_DIR / "icon.png.png"
 
 _col_icon, _col_title = st.columns([1, 9])
+
 with _col_icon:
-    with open(_ICON_PATH, "rb") as _f:
-        st.image(_f.read(), width=120)
+    if _ICON_PATH.is_file():
+        st.image(str(_ICON_PATH), width=120)
+    else:
+        st.warning(f"File ikon tidak ditemukan: {_ICON_PATH.name}")
+
+with _col_title:
+    st.markdown("## Dashboard Monitoring Flow & Pressure")
 with _col_title:
     st.markdown("## Dashboard Monitoring Flow & Pressure")
 
