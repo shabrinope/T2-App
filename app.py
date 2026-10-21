@@ -29,8 +29,6 @@ with _col_icon:
 
 with _col_title:
     st.markdown("## Dashboard Monitoring Flow & Pressure")
-with _col_title:
-    st.markdown("## Dashboard Monitoring Flow & Pressure")
 
 st.write(
     """
